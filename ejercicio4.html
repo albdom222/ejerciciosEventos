@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a servicios de webmail</title>
+    <style>
+        .webmail-link {
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer; /* Cambia el cursor a una mano cuando pasa por encima */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            color: black; /* Color de texto negro por defecto */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pasa el ratón sobre un servicio de correo:</h1>
+
+    <a href="https://mail.google.com" class="webmail-link" onmouseover="cambiarFondo('red')" onmouseout="restablecerFondo()">Gmail</a><br>
+    <a href="https://outlook.live.com" class="webmail-link" onmouseover="cambiarFondo('green')" onmouseout="restablecerFondo()">Hotmail</a><br>
+    <a href="https://mail.yahoo.com" class="webmail-link" onmouseover="cambiarFondo('blue')" onmouseout="restablecerFondo()">Yahoo</a>
+
+    <script>
+        // Función para cambiar el color de fondo según el color pasado como argumento
+        function cambiarFondo(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        // Función para restablecer el color de fondo a blanco
+        function restablecerFondo() {
+            document.body.style.backgroundColor = 'white';
+        }
+    </script>
+
+</body>
+</html>

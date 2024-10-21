@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color de fondo con onMouseOver y onMouseOut</title>
+    <style>
+        .color-text {
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer; /* Cambia el cursor a una mano cuando pasa por encima */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Pasa el ratón sobre los colores:</h1>
+
+    <span class="color-text" onmouseover="cambiarFondo('red')" onmouseout="restablecerFondo()">Rojo</span>
+    <span class="color-text" onmouseover="cambiarFondo('green')" onmouseout="restablecerFondo()">Verde</span>
+    <span class="color-text" onmouseover="cambiarFondo('blue')" onmouseout="restablecerFondo()">Azul</span>
+
+    <script>
+        // Función para cambiar el color de fondo según el color pasado como argumento
+        function cambiarFondo(color) {
+            document.body.style.backgroundColor = color;
+        }
+
+        // Función para restablecer el color de fondo a blanco
+        function restablecerFondo() {
+            document.body.style.backgroundColor = 'white';
+        }
+    </script>
+
+</body>
+</html>

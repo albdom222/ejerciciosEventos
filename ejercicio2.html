@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de clave con onFocus y onBlur</title>
+</head>
+<body>
+    <h1>Formulario de usuario</h1>
+
+    <form>
+        <label for="username">Nombre de usuario:</label><br>
+        <input type="text" id="username" name="username" onfocus="resaltar(this)" onblur="normal(this)"><br><br>
+
+        <label for="password">Clave:</label><br>
+        <input type="password" id="password" name="password" onfocus="resaltar(this)" onblur="validarClave(this)"><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        // Función para resaltar el campo cuando recibe el foco
+        function resaltar(elemento) {
+            elemento.style.backgroundColor = "#008000"; // Cambia el color de fondo cuando se selecciona el campo
+        }
+
+        // Función para volver al color original cuando el foco se pierde
+        function normal(elemento) {
+            elemento.style.backgroundColor = ""; // Vuelve al color original al perder el foco
+        }
+
+        // Función para validar la clave cuando se pierde el foco del campo (onBlur)
+        function validarClave(elemento) {
+            const clave = elemento.value;
+            if (clave.length < 7 || clave.length > 20) {
+                alert("La clave debe tener entre 7 y 20 caracteres.");
+                elemento.focus(); // Vuelve el foco al campo de clave si no es válida
+            } else {
+                normal(elemento); // Restablece el color del campo si es válido
+            }
+        }
+    </script>
+</body>
+</html>

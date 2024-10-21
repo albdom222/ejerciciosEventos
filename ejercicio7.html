@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicar valor con doble clic</title>
+    <style>
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Doble clic para duplicar el valor</h1>
+
+    <!-- Div que contiene el valor inicial -->
+    <div id="miDiv">2</div>
+
+    <script>
+        // Obtener el div por su ID
+        const miDiv = document.getElementById('miDiv');
+
+        // Asignar el evento 'dblclick' al div
+        miDiv.addEventListener('dblclick', function() {
+            // Obtener el valor actual del div y duplicarlo
+            let valorActual = parseInt(miDiv.innerText);
+            miDiv.innerText = valorActual * 2;
+        });
+    </script>
+
+</body>
+</html>

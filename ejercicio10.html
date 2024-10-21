@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Términos y Condiciones</title>
+</head>
+<body>
+
+    <h1>Formulario de Confirmación</h1>
+
+    <form>
+        <label>
+            <input type="checkbox" id="terminos">
+            Confirma los términos y condiciones
+        </label><br><br>
+        <button id="miBoton" disabled>Enviar</button>
+    </form>
+
+    <script>
+        const checkbox = document.getElementById('terminos');
+        const boton = document.getElementById('miBoton');
+
+        // Escuchar el evento 'change' en el checkbox
+        checkbox.addEventListener('change', function() {
+            // Si el checkbox está marcado, habilitar el botón
+            if (checkbox.checked) {
+                boton.disabled = false;
+            } else {
+                // Si no está marcado, deshabilitar el botón
+                boton.disabled = true;
+            }
+        });
+    </script>
+
+</body>
+</html>

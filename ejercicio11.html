@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor Euros - Pesetas</title>
+</head>
+<body>
+
+    <h1>Conversor Euros - Pesetas</h1>
+
+    <form id="form-conversor">
+        <label for="monto">Monto:</label>
+        <input type="number" id="monto" placeholder="Introduce la cantidad" step="any" required><br><br>
+
+        <label for="conversion">Convertir a:</label>
+        <select id="conversion">
+            <option value="euros-a-pesetas">Euros a Pesetas</option>
+            <option value="pesetas-a-euros">Pesetas a Euros</option>
+        </select><br><br>
+
+        <button type="button" onclick="convertir()">Convertir</button>
+
+        <button type="reset">Limpiar</button>
+    </form>
+
+    <h2>Resultado: <span id="resultado">---</span></h2>
+
+    <script>
+        // Función para realizar la conversión
+        function convertir() {
+            const monto = parseFloat(document.getElementById('monto').value);
+            const conversion = document.getElementById('conversion').value;
+            const resultado = document.getElementById('resultado');
+
+            if (isNaN(monto)) {
+                resultado.innerText = 'Por favor, introduce un valor numérico válido';
+                return;
+            }
+
+            let conversionResult = 0;
+            const conversionRate = 166.386; // 1 euro = 166.386 pesetas
+
+            if (conversion === 'euros-a-pesetas') {
+                conversionResult = monto * conversionRate;
+                resultado.innerText = `${monto} Euros son ${conversionResult.toFixed(2)} Pesetas`;
+            } else if (conversion === 'pesetas-a-euros') {
+                conversionResult = monto / conversionRate;
+                resultado.innerText = `${monto} Pesetas son ${conversionResult.toFixed(2)} Euros`;
+            }
+        }
+    </script>
+
+</body>
+</html>

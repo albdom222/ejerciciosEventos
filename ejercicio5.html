@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha en nueva pestaña</title>
+</head>
+<body>
+
+    <h1>Mostrar la fecha actual en una nueva pestaña</h1>
+    <button onclick="abrirNuevaPestaña()">Abrir nueva pestaña</button>
+
+    <script>
+        function abrirNuevaPestaña() {
+            // Obtener la fecha actual
+            const fechaActual = new Date();
+
+            // Arreglos para obtener el nombre del día de la semana y el nombre del mes
+            const diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+            // Obtener los valores de la fecha
+            const diaSemana = diasSemana[fechaActual.getDay()]; // Nombre del día de la semana
+            const diaMes = fechaActual.getDate(); // Día del mes
+            const mes = meses[fechaActual.getMonth()]; // Nombre del mes
+            const año = fechaActual.getFullYear(); // Año actual
+
+            // Crear el contenido para la nueva ventana
+            const contenido = `Hoy es ${diaSemana}, ${diaMes} de ${mes} de ${año}`;
+
+            // Abrir una nueva pestaña y escribir el contenido
+            const nuevaVentana = window.open("", "_blank", "width=400,height=300");
+            nuevaVentana.document.write(`<h1>${contenido}</h1>`);
+            nuevaVentana.document.title = "Fecha Actual"; // Título de la nueva pestaña
+        }
+    </script>
+
+</body>
+</html>

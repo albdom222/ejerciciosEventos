@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posición del Ratón y Teclas Pulsadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #info {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Eventos de Ratón y Teclado</h1>
+
+    <p>Mueve el ratón o pulsa cualquier tecla para ver la información.</p>
+
+    <div id="info">
+        <p id="mensaje">Esperando eventos...</p>
+    </div>
+
+    <script>
+        // Función que muestra la información de los eventos
+        function muestraInformacion(evento) {
+            const mensaje = document.getElementById('mensaje');
+            let info = '';
+
+            if (evento.type === 'mousemove') {
+                // Información del evento de movimiento del ratón
+                info = `<strong>Evento:</strong> Movimiento del Ratón<br>
+                        <strong>Posición en la ventana (X, Y):</strong> ${evento.clientX}, ${evento.clientY}<br>
+                        <strong>Posición en la página (X, Y):</strong> ${evento.pageX}, ${evento.pageY}`;
+            } else if (evento.type === 'keydown') {
+                // Información del evento de teclado
+                info = `<strong>Evento:</strong> Tecla Pulsada<br>
+                        <strong>Tecla:</strong> ${evento.key} (Código: ${evento.keyCode})`;
+            }
+
+            // Actualizamos el contenido del mensaje
+            mensaje.innerHTML = info;
+        }
+
+        // Detectar movimiento del ratón en la ventana
+        window.addEventListener('mousemove', function(event) {
+            muestraInformacion(event);
+        });
+
+        // Detectar cuando se pulsa una tecla
+        window.addEventListener('keydown', function(event) {
+            muestraInformacion(event);
+        });
+    </script>
+
+</body>
+</html>
